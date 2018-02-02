@@ -8,14 +8,14 @@
 
 def triplets(width, height):
     string = "P3\n" + str(width) + " " + str(height) + "\n255\n"
-    R = 0
-    G = 0
-    B = 0
+
+    increment = 0
     for x in range(0, height):
         for y in range(0, width):
-            string +=  str(R + 255.0 / (width*height)) + " " + str(G + 255.0 / (width*height)) + " " + str(B + 255.0 / (width*height)) + " "
-            # string +="255 255 255 "
+            string +=  str(increment) + " " + str(increment) + " " + str(increment) + " "
+            increment += 255.0/width
         string += "\n"
+        increment = 0
     return string
 
 fd = open("hw.ppm", "w")
